@@ -1,13 +1,15 @@
-<h1> Jogador atual: {{ jogador }} </h1>
+<ng-container *ngIf="!vencedor"> <!-- verifica se o vencedor é nulo e mostra o próximo jogador se for-->
+  <h1> Jogador atual: {{ jogador }} </h1>
+</ng-container>
 
-<button (click)="novoJogo()">Começar Novo Jogo</button>
+<button (click)="novoJogo()">Começar Novo Jogo</button> <!-- botão de começar o jogo -->
 
 
-<h2 *ngIf="vencedor">
+<h2 *ngIf="vencedor"> <!-- chama o vencedor -->
   O jogador {{ vencedor }} ganhou o jogo!
 </h2>
 
-
+<!--  renderiza a grade do jogo da velha com os quadrados em branco e permite que os usuários cliquem neles para fazer uma jogada -->
 <main>
   <app-square
     *ngFor="let val of quadrados; let i = index"
