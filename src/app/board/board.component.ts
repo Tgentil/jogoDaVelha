@@ -28,6 +28,11 @@ export class BoardComponent implements OnInit{
   }
 
   jogada(idx: number) {
+
+    if (this.vencedor !== null) {
+      return; // Jogo acabou
+    }
+
     if (!this.quadrados[idx] ) {
       this.quadrados.splice(idx, 1, this.jogador);
       this.xIsNext = !this.xIsNext;
